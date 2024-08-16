@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cemvgw0eep3up"]
+
+[ext_resource type="Texture2D" uid="uid://dp8j0ci06wrqp" path="res://images/Schéma 1.png" id="1_qpfdh"]
+[ext_resource type="Script" path="res://Tiles.gd" id="2_v40y8"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(640, 360)
+texture = ExtResource("1_qpfdh")
+region_rect = Rect2(293, 122.5, 25, 5)
+
+[node name="Tiles" type="Node" parent="."]
+script = ExtResource("2_v40y8")
