@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dg75urb60ylr6"
-path="res://.godot/imported/Tile_green.png-8f7bedb4d089a65c35d14b2e77f32acf.ctex"
+uid="uid://cc5kxf0qvloyo"
+path="res://.godot/imported/Animation_Success4.png-509f69d1cb684c291ab52b4882fe2b62.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/Tile_green.png"
-dest_files=["res://.godot/imported/Tile_green.png-8f7bedb4d089a65c35d14b2e77f32acf.ctex"]
+source_file="res://images/Succes/Animation_Success4.png"
+dest_files=["res://.godot/imported/Animation_Success4.png-509f69d1cb684c291ab52b4882fe2b62.ctex"]
 
 [params]
 
