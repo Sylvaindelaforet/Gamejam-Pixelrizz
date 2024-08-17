@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scenes/Pots/pot.gd" id="1_lws35"]
 [ext_resource type="Texture2D" uid="uid://dofoykctu5vsj" path="res://Images/potBleu.png" id="1_wgsx3"]
-[ext_resource type="Script" path="res://Scenes/Pots/PotSprite.gd" id="3_jys55"]
+[ext_resource type="Script" path="res://Scenes/Pots/ClickSprite.gd" id="2_vxjws"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_axgta"]
 size = Vector2(170, 174.75)
@@ -11,7 +11,7 @@ size = Vector2(170, 174.75)
 script = ExtResource("1_lws35")
 
 [node name="Area2D" type="Area2D" parent="."]
-script = ExtResource("3_jys55")
+script = ExtResource("2_vxjws")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(9, 27)
