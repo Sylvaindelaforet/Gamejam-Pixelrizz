@@ -7,13 +7,13 @@ var tiles_grid = null
 
 # Initial state of the grid
 var init_grid = [
-	[  null,   null,   null, "blue", "blue",   null,   null,   null ],
-	[  null,   null,   null, "blue", "blue",   null,   null,   null ],
-	[  null,   null, "blue", "blue", "blue", "blue",   null,   null ],
-	[  null, "blue", "blue", "blue", "blue", "blue", "blue",   null ],
-	[  null, "blue", "blue", "blue", "blue", "blue", "blue",   null ],
-	["blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue" ],
-	["blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue" ]
+	[  null,   null,   null,   null, null,     null,   null,   null ],
+	[  null,   null,   null, "blue", "blue",     null,   null,   null ],
+	[  null,   null, "blue", "blue", "blue",   null,   null,   null ],
+	[  null, "blue", "blue", "blue", "blue", "blue",   null,   null ],
+	[  null, "blue", "blue", "blue", "blue", "blue",   "blue",   null ],
+	["blue", "blue", "blue", "blue", "blue", "blue",   "blue",   null ],
+	["blue", "blue", "blue", "blue", "blue", "blue",   "blue",   null ]
 ]
 
 
