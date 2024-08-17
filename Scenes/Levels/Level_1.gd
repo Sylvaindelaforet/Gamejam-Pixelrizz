@@ -1,7 +1,7 @@
 extends Node2D
 
 
-var selected_color = "red"
+var selected_color = "blue"
 var tiles_grid = null
 
 
@@ -47,5 +47,13 @@ func next_level():
 	get_tree().change_scene_to_file("res://Scenes/Levels/Level_2.tscn")
 
 func _on_pot_couleur_choisie(pot_color):
-	selected_color = pot_color
+	match pot_color:
+		"red":
+			Input.set_custom_mouse_cursor(load("res://Images/Pinceaux/pinceau_rouge.png"))
+		"blue":
+			Input.set_custom_mouse_cursor(load("res://Images/Pinceaux/pinceau_bleu.png"))
+		"yellow":
+			Input.set_custom_mouse_cursor(load("res://Images/Pinceaux/pinceau_jaune.png"))
+
+
 
