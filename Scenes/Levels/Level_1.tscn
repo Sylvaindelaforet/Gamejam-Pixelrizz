@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cemvgw0eep3up"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/Level_1.gd" id="1_bsqey"]
-[ext_resource type="Texture2D" uid="uid://dp8j0ci06wrqp" path="res://images/Schéma 1.png" id="1_lvyhp"]
+[ext_resource type="Texture2D" uid="uid://bfjc6v2c816g4" path="res://Images/Background.png" id="1_lvyhp"]
 [ext_resource type="Texture2D" uid="uid://bldquif5r87db" path="res://Images/Foreground_1.png" id="3_btu7t"]
 
 [node name="Level_1" type="Node2D"]
