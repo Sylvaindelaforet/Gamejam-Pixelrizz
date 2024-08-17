@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dofoykctu5vsj"
-path="res://.godot/imported/potBleu.png-d3d24681f387074b2754ac1b9f02830a.ctex"
+path="res://.godot/imported/potBleu.png-8c5080353a04761a44ce97de786ccef2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/potBleu.png"
-dest_files=["res://.godot/imported/potBleu.png-d3d24681f387074b2754ac1b9f02830a.ctex"]
+source_file="res://Images/potBleu.png"
+dest_files=["res://.godot/imported/potBleu.png-8c5080353a04761a44ce97de786ccef2.ctex"]
 
 [params]
 

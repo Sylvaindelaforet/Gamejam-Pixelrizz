@@ -23,8 +23,9 @@ var tiles_lists = []
 
 
 # the grid is placed in order to occupy all the window's height
+var x_margin = 70
 var y_margin = 100
-var colors = ["red", "blue"]
+var colors = ["red", "blue", "green", "yellow"]
 
 # the same textures will be preloaded for all the tiles
 var tiles_textures = {}  # { "red": red_texture, ... }
@@ -56,7 +57,7 @@ func init_tiles(_window_width, _window_height):
 	var tile_width = tile_size
 	var tile_height = tile_size
 	# first tile position: bottom left
-	var x_0 = (_window_width - nb_columns * tile_width) / 2
+	var x_0 = x_margin # to center: (_window_width - nb_columns * tile_width) / 2
 	var y_0 = y_margin  # warning: y-axis is upside-down
 	# init the tiles grid
 	tiles_lists = []
@@ -93,13 +94,8 @@ func load_textures():
 var is_propagating = false
 
 func user_clicked_on_tile(i_x, i_y):
-	print(i_x)
-	print(i_y)
 	var selected_color = level.get_selected_color()
 	var current_color = colors_grid[i_y][i_x]
-	print(selected_color)
-	print(current_color)
-	print(tiles_lists[i_y][i_x])
 	if !is_propagating and selected_color != current_color:
 		colors_grid[i_y][i_x] = selected_color
 		tiles_lists[i_y][i_x].set_color(selected_color)
@@ -111,6 +107,96 @@ func user_clicked_on_tile(i_x, i_y):
 
 # Propagation of color changes
 
+func is_lighter(color_1, color_2):
+	return color_1 == "red" and color_2 == "blue"
+
+func apply_gravity(old_grid, new_grid):
+	var nb_rows = len(old_grid)
+	var nb_columns = len(old_grid[0])
+	# to know if a tile has already moved
+	var tile_has_moved = []
+	for i_y in range(nb_rows): 
+		tile_has_moved.append([])
+		for i_x in range(nb_columns):
+			tile_has_moved[i_y].append(false)
+	# first line
+	for i_x in range(nb_columns):
+		new_grid[0][i_x] = old_grid[0][i_x]
+	# move the tiles
+	for i_y in range(1, nb_rows):
+		for i_x in range(nb_columns):
+			if old_grid[i_y][i_x] != null and tile_has_moved[i_y][i_x] == false:
+				var current_color   = old_grid[i_y  ][i_x]
+				var top_color       = old_grid[i_y-1][i_x]
+				var top_left_color  = old_grid[i_y-1][i_x-1] if i_x > 0            else null
+				var top_right_color = old_grid[i_y-1][i_x+1] if i_x < nb_columns-1 else null
+				var change = false
+				var other_i_x = -1
+				if top_color != null and tile_has_moved[i_y-1][i_x] == false and is_lighter(current_color, top_color):
+					change = true
+					other_i_x = i_x
+				# on regarde les cases en diagonale
+				elif top_left_color != null and tile_has_moved[i_y-1][i_x-1] == false and is_lighter(current_color, top_left_color):
+					change = true
+					other_i_x = i_x-1
+				elif top_right_color != null and tile_has_moved[i_y-1][i_x+1] == false and is_lighter(current_color, top_right_color):
+					change = true
+					other_i_x = i_x+1
+				else:
+					new_grid[i_y][i_x] = old_grid[i_y][i_x]
+				if change:
+					# on intervertit les 2 cases
+					new_grid[i_y][i_x] = old_grid[i_y-1][other_i_x]
+					new_grid[i_y-1][other_i_x] = old_grid[i_y][i_x]
+					tile_has_moved[i_y][i_x] = true
+					tile_has_moved[i_y-1][other_i_x] = true
+			else:
+				# the color has already been set in q previous exchange
+				pass
+
+
+func get_list_neighbours(grid, i_y, i_x):
+	var nb_rows = len(grid)
+	var nb_columns = len(grid[0])
+	var neighbours = []
+	if i_x > 0                               : neighbours.append(grid[i_y  ][i_x-1])
+	if i_x > 0            and i_y > 0        : neighbours.append(grid[i_y-1][i_x-1])
+	if                        i_y > 0        : neighbours.append(grid[i_y-1][i_x  ])
+	if i_x < nb_columns-1 and i_y > 0        : neighbours.append(grid[i_y-1][i_x+1])
+	if i_x < nb_columns-1                    : neighbours.append(grid[i_y  ][i_x+1])
+	if i_x < nb_columns-1 and i_y < nb_rows-1: neighbours.append(grid[i_y+1][i_x+1])
+	if                        i_y < nb_rows-1: neighbours.append(grid[i_y+1][i_x  ])
+	if i_x > 0            and i_y < nb_rows-1: neighbours.append(grid[i_y+1][i_x-1])
+	return neighbours
+
+func apply_transformations(old_grid, new_grid):
+	var nb_rows = len(old_grid)
+	var nb_columns = len(old_grid[0])
+	for i_y in range(nb_rows):
+		for i_x in range(nb_columns):
+			var new_value = null
+			var neighbours_colors = get_list_neighbours(old_grid, i_y, i_x)
+			
+			if old_grid[i_y][i_x] == "yellow":
+				var nb_red_neighbours = 0
+				for c in neighbours_colors:
+					if c == "red":
+						nb_red_neighbours += 1
+				if nb_red_neighbours >= 2:
+					new_value = "red"
+				elif "green" in neighbours_colors:
+					new_value = "blue"
+				else:
+					new_value = "yellow"
+					
+			elif old_grid[i_y][i_x] == "green" and "yellow" in neighbours_colors:
+				new_value = "blue"
+			
+			else:
+				new_value = old_grid[i_y][i_x]
+			new_grid[i_y][i_x] = new_value
+
+
 func get_new_grid(old_grid):
 	var nb_rows = len(old_grid)
 	var nb_columns = len(old_grid[0])
@@ -121,27 +207,9 @@ func get_new_grid(old_grid):
 		for i_x in range(nb_columns):
 			new_grid[i_y].append(null)
 	# fill the new grid
-	for i_y in range(nb_rows):
-		for i_x in range(nb_columns):
-			var new_value = null
-			if old_grid[i_y][i_x] != null:
-				
-				
-				
-				# CALCUL DES NOUVELLES COULEURS ICI
-				
-				# Par exemple, ci dessous on fait en sorte que toutes les cases en-dessous d'une case rouge deviennent rouges
-				# (attention l'axe y est vers le haut dans le sens de y decroissant !)
-					if i_y >= 1 and old_grid[i_y-1][i_x] != null and old_grid[i_y-1][i_x] == "red":
-						new_value = "red"
-					else:
-						new_value = old_grid[i_y][i_x]
-				
-				
-				
-				
-				
-			new_grid[i_y][i_x] = new_value
+	apply_gravity(old_grid, new_grid)
+	old_grid = create_grid_copy(new_grid)
+	apply_transformations(old_grid, new_grid)
 	return new_grid
 
 # we assume the dimensions are the same
