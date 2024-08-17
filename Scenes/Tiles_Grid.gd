@@ -23,7 +23,7 @@ var tiles_lists = []
 
 
 # the grid is placed in order to occupy all the window's height
-var x_margin = 70
+var x_margin = 20
 var y_margin = 100
 var colors = ["red", "blue", "green", "yellow"]
 
@@ -42,7 +42,7 @@ func _process(delta):
 
 func init(_level, _init_grid, _window_width, _window_height):
 	level = _level
-	colors_grid =  create_grid_copy(_init_grid)
+	colors_grid = create_grid_copy(_init_grid)
 	load_textures()
 	init_tiles(_window_width, _window_height)
 

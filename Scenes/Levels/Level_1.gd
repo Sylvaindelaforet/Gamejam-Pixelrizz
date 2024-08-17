@@ -7,8 +7,8 @@ var tiles_grid = null
 
 # Initial state of the grid
 var init_grid = [
-	[  null,   null,   null,   null, null,     null,   null,   null ],
-	[  null,   null,   null, "blue", "blue",     null,   null,   null ],
+	[  null,   null,   null,   null,   null,   null,   null,   null ],
+	[  null,   null,   null, "blue", "blue",   null,   null,   null ],
 	[  null,   null, "blue", "blue", "blue",   null,   null,   null ],
 	[  null, "blue", "blue", "blue", "blue", "blue",   null,   null ],
 	[  null, "blue", "blue", "blue", "blue", "blue",   "blue",   null ],
@@ -22,22 +22,29 @@ func _ready():
 	tiles_grid = tiles_grid_scene.instantiate()
 	var window_width = get_viewport().size.x
 	var window_height = get_viewport().size.y
-	tiles_grid.init(self, init_grid, window_width, window_height)
+	tiles_grid.init(self, init_grid, 1200, 720)
 	$Centered_View/Position_For_Tiles_Grid.add_child(tiles_grid)
 
 func scale_black():
-	$Black.scale.x = 1.0 * get_viewport().size.x / 100
-	$Black.scale.y = 1.0 * get_viewport().size.y / 100
-	
+	$Black.position.x = -1
+	$Black.position.y = -1
+	$Black.scale.x = 1.1 * get_viewport().size.x / 100
+	$Black.scale.y = 1.1 * get_viewport().size.y / 100
+
 func _process(delta):
+	# black background
 	scale_black()
+	# Centered_View scale
 	var background_width = 1200
 	var background_height = 720
 	var scale = 1.0 * get_viewport().size.y / background_height
 	if scale * background_width > get_viewport().size.x:
 		scale = 1.0 * get_viewport().size.x / background_width
-	#self.scale.x = scale 
-	#self.scale.y = scale 
+	$Centered_View.scale.x = scale
+	$Centered_View.scale.y = scale
+	# Centered_View position
+	$Centered_View.position.x = (get_viewport().size.x - scale * background_width) / 2
+	$Centered_View.position.y = (get_viewport().size.y - scale * background_height) / 2
 
 
 func validate_grid():

@@ -11,44 +11,41 @@
 script = ExtResource("1_bsqey")
 
 [node name="Black" type="Sprite2D" parent="."]
-position = Vector2(640, 360)
 texture = ExtResource("2_35sc0")
+centered = false
 region_rect = Rect2(293, 122.5, 25, 5)
 
 [node name="Centered_View" type="Node2D" parent="."]
+position = Vector2(40, 0)
 
 [node name="Background" type="Sprite2D" parent="Centered_View"]
-position = Vector2(640, 360)
 texture = ExtResource("2_nb4ak")
+offset = Vector2(600, 360)
 region_rect = Rect2(293, 122.5, 25, 5)
 
 [node name="Position_For_Tiles_Grid" type="Node2D" parent="Centered_View"]
 
 [node name="Foreground" type="Sprite2D" parent="Centered_View"]
 texture_filter = 1
-position = Vector2(640, 360)
 texture = ExtResource("3_b6bgg")
+offset = Vector2(600, 360)
 region_rect = Rect2(293, 122.5, 25, 5)
 
 [node name="Pots" type="Node2D" parent="Centered_View"]
 
 [node name="PotBleu" parent="Centered_View/Pots" instance=ExtResource("4_vjkdm")]
-position = Vector2(1144, 569)
+position = Vector2(1087, 530)
 
 [node name="PotJaune" parent="Centered_View/Pots" instance=ExtResource("4_vjkdm")]
-position = Vector2(1144, 187)
+position = Vector2(1090, 138)
 pot_color = 2
 
 [node name="PotRouge" parent="Centered_View/Pots" instance=ExtResource("4_vjkdm")]
-position = Vector2(1143, 385)
+position = Vector2(1088, 335)
 pot_color = 1
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(642, 360)
-zoom = Vector2(1.065, 1)
-
-[node name="InfoButton" parent="." instance=ExtResource("5_6kldi")]
-position = Vector2(857, 122)
+[node name="InfoButton" parent="Centered_View" instance=ExtResource("5_6kldi")]
+position = Vector2(805, 122)
 text_to_display = "Super génial"
 
 [connection signal="couleur_choisie" from="Centered_View/Pots/PotBleu" to="." method="_on_pot_couleur_choisie"]
