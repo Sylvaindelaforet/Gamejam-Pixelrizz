@@ -5,9 +5,9 @@ var selected_color = "red"
 
 # Initial state of the grid
 var init_grid = [
-	[ "blue", "blue",   null,   null ],
-	[ "blue", "blue",   null,   null ],
-	[ "blue", "blue", "blue",   null ],
+	[ "blue", "blue", "blue", "blue" ],
+	[ "blue", "blue", "blue", "blue" ],
+	[ "blue", "blue", "blue", "blue" ],
 	[ "blue", "blue", "blue", "blue" ],
 	[ "blue", "blue", "blue", "blue" ],
 	[ "blue", "blue", "blue", "blue" ],
@@ -34,5 +34,5 @@ func get_selected_color():
 	return selected_color
 
 func next_level():
-	get_tree().change_scene("res://Scenes/Levels/Level_3.tscn")
+	get_tree().change_scene("res://Scenes/Levels/Level_1.tscn")
 

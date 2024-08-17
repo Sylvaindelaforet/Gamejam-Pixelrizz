@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cphkpxkew2kgn"]
+
+[ext_resource type="Script" path="res://Scenes/Levels/Level_3.gd" id="1_ulo7g"]
+[ext_resource type="Texture2D" uid="uid://dp8j0ci06wrqp" path="res://images/Schéma 1.png" id="2_txp37"]
+
+[node name="Level_3" type="Node2D"]
+script = ExtResource("1_ulo7g")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(640, 360)
+texture = ExtResource("2_txp37")
+region_rect = Rect2(293, 122.5, 25, 5)
+
+[node name="Position_For_Tiles_Grid" type="Node2D" parent="."]
