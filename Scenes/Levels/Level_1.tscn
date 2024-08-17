@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cemvgw0eep3up"]
+[gd_scene load_steps=6 format=3 uid="uid://cemvgw0eep3up"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/Level_1.gd" id="1_bsqey"]
+[ext_resource type="Texture2D" uid="uid://cqox7iek10ogn" path="res://Images/Black.png" id="2_35sc0"]
 [ext_resource type="Texture2D" uid="uid://dr78kwwgbfoih" path="res://Images/Background1.png" id="2_nb4ak"]
 [ext_resource type="Texture2D" uid="uid://bym40hhl72rtp" path="res://Images/Foreground1.png" id="3_b6bgg"]
 [ext_resource type="PackedScene" uid="uid://cuhn2m0tamqn8" path="res://Scenes/Pots/pot.tscn" id="4_vjkdm"]
@@ -8,31 +9,39 @@
 [node name="Level_1" type="Node2D"]
 script = ExtResource("1_bsqey")
 
-[node name="Background" type="Sprite2D" parent="."]
+[node name="Black" type="Sprite2D" parent="."]
+position = Vector2(640, 360)
+texture = ExtResource("2_35sc0")
+region_rect = Rect2(293, 122.5, 25, 5)
+
+[node name="Centered_View" type="Node2D" parent="."]
+
+[node name="Background" type="Sprite2D" parent="Centered_View"]
 position = Vector2(640, 360)
 texture = ExtResource("2_nb4ak")
 region_rect = Rect2(293, 122.5, 25, 5)
 
-[node name="Position_For_Tiles_Grid" type="Node2D" parent="."]
+[node name="Position_For_Tiles_Grid" type="Node2D" parent="Centered_View"]
 
-[node name="Foreground" type="Sprite2D" parent="."]
+[node name="Foreground" type="Sprite2D" parent="Centered_View"]
+texture_filter = 1
 position = Vector2(640, 360)
 texture = ExtResource("3_b6bgg")
 region_rect = Rect2(293, 122.5, 25, 5)
 
-[node name="Pots" type="Node2D" parent="."]
+[node name="Pots" type="Node2D" parent="Centered_View"]
 
-[node name="PotBleu" parent="Pots" instance=ExtResource("4_vjkdm")]
+[node name="PotBleu" parent="Centered_View/Pots" instance=ExtResource("4_vjkdm")]
 position = Vector2(1144, 569)
 
-[node name="PotJaune" parent="Pots" instance=ExtResource("4_vjkdm")]
+[node name="PotJaune" parent="Centered_View/Pots" instance=ExtResource("4_vjkdm")]
 position = Vector2(1144, 187)
 pot_color = 2
 
-[node name="PotRouge" parent="Pots" instance=ExtResource("4_vjkdm")]
+[node name="PotRouge" parent="Centered_View/Pots" instance=ExtResource("4_vjkdm")]
 position = Vector2(1143, 385)
 pot_color = 1
 
-[connection signal="couleur_choisie" from="Pots/PotBleu" to="." method="_on_pot_couleur_choisie"]
-[connection signal="couleur_choisie" from="Pots/PotJaune" to="." method="_on_pot_couleur_choisie"]
-[connection signal="couleur_choisie" from="Pots/PotRouge" to="." method="_on_pot_couleur_choisie"]
+[connection signal="couleur_choisie" from="Centered_View/Pots/PotBleu" to="." method="_on_pot_couleur_choisie"]
+[connection signal="couleur_choisie" from="Centered_View/Pots/PotJaune" to="." method="_on_pot_couleur_choisie"]
+[connection signal="couleur_choisie" from="Centered_View/Pots/PotRouge" to="." method="_on_pot_couleur_choisie"]

@@ -23,11 +23,22 @@ func _ready():
 	var window_width = get_viewport().size.x
 	var window_height = get_viewport().size.y
 	tiles_grid.init(self, init_grid, window_width, window_height)
-	$Position_For_Tiles_Grid.add_child(tiles_grid)
+	$Centered_View/Position_For_Tiles_Grid.add_child(tiles_grid)
 
-
+func scale_black():
+	$Black.scale.x = 1.0 * get_viewport().size.x / 100
+	$Black.scale.y = 1.0 * get_viewport().size.y / 100
+	
 func _process(delta):
-	pass
+	scale_black()
+	var background_width = 1200
+	var background_height = 720
+	var scale = 1.0 * get_viewport().size.y / background_height
+	if scale * background_width > get_viewport().size.x:
+		scale = 1.0 * get_viewport().size.x / background_width
+	#self.scale.x = scale 
+	#self.scale.y = scale 
+
 
 func validate_grid():
 	var colors_grid = tiles_grid.get_colors_grid()
