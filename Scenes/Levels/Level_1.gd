@@ -45,3 +45,10 @@ func get_selected_color():
 
 func next_level():
 	get_tree().change_scene_to_file("res://Scenes/Levels/Level_2.tscn")
+
+
+var color_chosen = "blue"
+
+func _on_pot_couleur_choisie(pot_color):
+	color_chosen = pot_color
+
