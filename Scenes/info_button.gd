@@ -14,6 +14,7 @@ func _ready():
 	display()
 
 func display():
+	$ManuscriptSound.play()
 	$Popup.show()
 
 func show_success():
