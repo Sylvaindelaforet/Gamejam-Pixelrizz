@@ -2,7 +2,7 @@ extends Node2D
 
 
 var tiles_grid = null
-var is_last_level = false
+@export var is_last_level = false
 
 func _ready():
 	var init_grid = get_parent().get_init_grid()
@@ -55,6 +55,7 @@ func game_over():
 
 func game_success():
 	if is_last_level:
+		$GameWon.play()
 		$SuccessSound.play()
 		$AnimSuccess.show()
 		$AnimSuccess.play()
