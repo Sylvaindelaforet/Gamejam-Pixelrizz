@@ -39,6 +39,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Texte vide
 "
 horizontal_alignment = 1
+autowrap_mode = 1
 
 [node name="BigPar" type="Area2D" parent="Popup"]
 script = ExtResource("2_w4jeq")
