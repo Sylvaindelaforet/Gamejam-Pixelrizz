@@ -4,7 +4,7 @@ signal change_level()
 
 @export_multiline var text_to_display : String
 
-enum STATE {INFO, FAILURE, SUCCESS}
+enum STATE {INFO, FAILURE, SUCCESS, END_GAME}
 
 var current_state : STATE
 
@@ -18,8 +18,13 @@ func display():
 	$Popup.show()
 
 func show_success():
-	$Popup/Label.text = "Vous avez gagné!\n\nCliquez sur le parchemin pour passer au niveau suivant"
+	$Popup/Label.text = "Vous avez gagné !\n\nCliquez sur le parchemin pour passer au niveau suivant"
 	current_state = STATE.SUCCESS
+	display()
+
+func show_end_game():
+	$Popup/Label.text = "Félicitations !!\n\nVous avez terminé le jeu.\n\nVous êtes désormais certain de pouvoir utiliser le pouvoir\ndes couleurs afin d'atteindre vos objectifs de vie.\n(et vous savez également que vous n'êtes pas daltonien !)"
+	current_state = STATE.END_GAME
 	display()
 
 func show_failure():
@@ -35,7 +40,6 @@ func end_display():
 			get_parent().get_parent().load_next_level()
 		STATE.INFO:
 			$Popup.hide()
-
-
-
+		STATE.END_GAME:
+			pass
 

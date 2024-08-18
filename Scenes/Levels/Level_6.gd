@@ -1,7 +1,7 @@
 extends Node2D
 
 
-var next_level = "Level_8"
+var next_level = "Level_7"
 var selected_color = "blue"
 var tiles_grid = null
 var grid_x = 88

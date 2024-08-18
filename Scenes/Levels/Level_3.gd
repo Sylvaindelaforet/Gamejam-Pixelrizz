@@ -9,11 +9,11 @@ var grid_x = 36
 
 # Initial state of the grid
 var init_grid = [
-	[  null,   null,  "red",  "red", "blue",   null,   null ],
-	[  null, "blue",  "red", "blue", "blue", "blue",   null ],
-	[  null, "blue", "blue", "blue", "blue", "blue",   null ],
-	["blue", "blue", "blue", "blue", "blue", "blue", "blue" ],
-	["blue", "blue", "blue", "blue", "blue", "blue", "blue" ]
+	[   null,   null,  "red",  "red", "blue",   null,   null ],
+	[   null, "blue",  "red", "blue", "blue", "blue",   null ],
+	[   null, "blue", "blue", "blue", "blue", "blue",   null ],
+	[ "blue", "blue", "blue", "blue", "blue", "blue", "blue" ],
+	[ "blue", "blue", "blue", "blue", "blue", "blue", "blue" ]
 ]
 
 
@@ -30,7 +30,7 @@ func validate_grid():
 		for i_x in range(nb_columns):
 			if colors_grid[i_y][i_x] == "yellow":
 				count_yellow += 1
-	return count_yellow == 0
+	return false #count_yellow == 0
 
 func get_init_grid():
 	return init_grid
