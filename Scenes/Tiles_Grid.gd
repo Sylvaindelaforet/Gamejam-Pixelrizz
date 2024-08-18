@@ -98,6 +98,7 @@ func load_textures():
 var is_propagating = false
 
 func user_clicked_on_tile(i_x, i_y):
+	$TileClicked.play()
 	var selected_color = level.get_selected_color()
 	var current_color = colors_grid[i_y][i_x]
 	var selected_pot = level.get_pot_by_color(selected_color)
