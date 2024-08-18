@@ -79,7 +79,10 @@ content = 4
 
 [node name="InfoButton" parent="Level" instance=ExtResource("8_aqc41")]
 position = Vector2(805, 122)
-text_to_display = "Super génial"
+text_to_display = "Pour ce niveau, vous devez obtenir autant
+de cases pour chacune des 4 couleurs.
+
+Bon courage."
 
 [node name="SuccessSound" type="AudioStreamPlayer" parent="Level"]
 stream = ExtResource("9_m3fdk")

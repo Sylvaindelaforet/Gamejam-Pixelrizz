@@ -4,18 +4,18 @@ extends Node2D
 var next_level = null
 var selected_color = "blue"
 var tiles_grid = null
-var grid_x = 36
+var grid_x = 76
 
 
 # Initial state of the grid
 var init_grid = [
 	[     null,     null,     null,     null,     null,     null,     null,     null,     null,   null ],
-	[   "blue",   "blue",   "blue",   "blue",   "blue",   "blue",   "blue",   "blue",   "blue",   "blue" ],
-	[   "blue",   "blue",   "blue",   "blue",   "blue",   "blue",   "blue",   "blue",   "blue",   "blue" ],
-	[   "blue",   "blue",   "blue",   "blue",   "blue",   "blue",   "blue",   "blue",   "blue",   "blue" ],
-	[   "blue",   "blue",   "blue",   "blue",   "blue",   "blue",   "blue",   "blue",   "blue",   "blue" ],
-	[   "blue",   "blue",   "blue",   "blue",   "blue",   "blue",   "blue",   "blue",   "blue",   "blue" ],
-	[   "blue",   "blue",   "blue",   "blue",   "blue",   "blue",   "blue",   "blue",   "blue",   "blue" ]
+	[   "yellow",   "yellow",   "yellow",   "yellow",   "yellow",   "yellow",   "yellow",   "yellow",   "yellow",   "yellow" ],
+	[   "yellow",   "yellow",   "yellow",   "yellow",   "yellow",   "yellow",   "yellow",   "yellow",   "yellow",   "yellow" ],
+	[   "yellow",   "yellow",   "yellow",   "yellow",   "yellow",   "yellow",   "yellow",   "yellow",   "yellow",   "yellow" ],
+	[   "yellow",   "yellow",   "yellow",   "yellow",   "yellow",   "yellow",   "yellow",   "yellow",   "yellow",   "yellow" ],
+	[   "yellow",   "yellow",   "yellow",   "yellow",   "yellow",   "yellow",   "yellow",   "yellow",   "yellow",   "yellow" ],
+	[   "blue",   "blue",   "blue",   "green",   "blue",   "blue",   "blue",   "blue",   "blue",   "blue" ]
 ]
 
 
@@ -33,7 +33,7 @@ func validate_grid():
 		for i_x in range(nb_columns):
 			if colors_grid[i_y][i_x] == "red":
 				count_red += 1
-	return count_red >= 5
+	return false # count_red >= 5
 
 func get_init_grid():
 	return init_grid
