@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://br801pfyw1cn1"]
+[gd_scene load_steps=11 format=3 uid="uid://br801pfyw1cn1"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/Level_2.gd" id="1_j2ifx"]
 [ext_resource type="Texture2D" uid="uid://dr78kwwgbfoih" path="res://Images/Background1.png" id="2_k6o3y"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://bym40hhl72rtp" path="res://Images/Foreground1.png" id="6_sbaii"]
 [ext_resource type="PackedScene" uid="uid://cuhn2m0tamqn8" path="res://Scenes/Pots/pot.tscn" id="7_psg3u"]
 [ext_resource type="PackedScene" uid="uid://ny50yfb21ig4" path="res://Scenes/info_button.tscn" id="8_jai3g"]
+[ext_resource type="AudioStream" uid="uid://bk087ibq4fhl3" path="res://Sons/succes.mp3" id="9_lmhxb"]
+[ext_resource type="AudioStream" uid="uid://qa4gbyycf3uc" path="res://Sons/fail.wav" id="10_linww"]
 
 [node name="Level_2" type="Node2D"]
 script = ExtResource("1_j2ifx")
@@ -51,6 +53,12 @@ pot_color = 1
 [node name="InfoButton" parent="Level" instance=ExtResource("8_jai3g")]
 position = Vector2(805, 122)
 text_to_display = "Super génial"
+
+[node name="SuccessSound" type="AudioStreamPlayer" parent="Level"]
+stream = ExtResource("9_lmhxb")
+
+[node name="FailSound" type="AudioStreamPlayer" parent="Level"]
+stream = ExtResource("10_linww")
 
 [connection signal="couleur_choisie" from="Level/Pots/PotBleu" to="." method="_on_pot_couleur_choisie"]
 [connection signal="couleur_choisie" from="Level/Pots/PotJaune" to="." method="_on_pot_couleur_choisie"]
