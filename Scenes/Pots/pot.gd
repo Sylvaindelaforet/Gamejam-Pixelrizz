@@ -44,6 +44,7 @@ func set_color(_new_color:COLORS):
 	_choose_sprite()
 
 func _pot_clicked():
+	$PotSound.play()
 	couleur_choisie.emit(color_to_int[pot_color])
 
 

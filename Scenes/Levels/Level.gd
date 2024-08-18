@@ -46,6 +46,7 @@ func game_is_lost():
 	return true
 
 func game_over():
+	$FailSound.play()
 	$InfoButton.show_failure()
 
 func game_success():

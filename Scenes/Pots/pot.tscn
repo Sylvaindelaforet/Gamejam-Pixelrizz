@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cuhn2m0tamqn8"]
+[gd_scene load_steps=7 format=3 uid="uid://cuhn2m0tamqn8"]
 
 [ext_resource type="Script" path="res://Scenes/Pots/pot.gd" id="1_lws35"]
 [ext_resource type="Texture2D" uid="uid://dofoykctu5vsj" path="res://Images/potBleu.png" id="1_wgsx3"]
 [ext_resource type="Script" path="res://Scenes/Pots/ClickSprite.gd" id="2_vxjws"]
+[ext_resource type="AudioStream" uid="uid://b5lrpb6lltuqy" path="res://Sons/pot.mp3" id="4_to5lp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_axgta"]
 size = Vector2(170, 174.75)
@@ -31,5 +32,8 @@ offset_right = 44.0
 offset_bottom = 48.0
 text = "0"
 label_settings = SubResource("LabelSettings_eftyl")
+
+[node name="PotSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_to5lp")
 
 [connection signal="clicked" from="Area2D" to="." method="_pot_clicked"]
