@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cemvgw0eep3up"]
+[gd_scene load_steps=15 format=3 uid="uid://cemvgw0eep3up"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/Level_1.gd" id="1_bsqey"]
 [ext_resource type="Texture2D" uid="uid://cqox7iek10ogn" path="res://Images/Black.png" id="2_35sc0"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://54l1q6fttpeq" path="res://Images/Succes/Animation_Success2.png" id="10_vkbul"]
 [ext_resource type="Texture2D" uid="uid://jelckkxt4frj" path="res://Images/Succes/Animation_Success3.png" id="11_77hsa"]
 [ext_resource type="Texture2D" uid="uid://cc5kxf0qvloyo" path="res://Images/Succes/Animation_Success4.png" id="12_fnqhd"]
+[ext_resource type="AudioStream" uid="uid://bk087ibq4fhl3" path="res://Sons/succes.mp3" id="13_ri5v5"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_35mwl"]
 animations = [{
@@ -76,9 +77,13 @@ text_to_display = "Bienvenu dans le niveau 1.
 Vous devez "
 
 [node name="AnimSuccess" type="AnimatedSprite2D" parent="Level"]
+visible = false
 position = Vector2(604, 363)
 sprite_frames = SubResource("SpriteFrames_35mwl")
-frame_progress = 0.646993
+frame_progress = 0.23095
+
+[node name="SuccessSound" type="AudioStreamPlayer" parent="Level"]
+stream = ExtResource("13_ri5v5")
 
 [connection signal="couleur_choisie" from="Level/Pots/PotBleu" to="." method="_on_pot_couleur_choisie"]
 [connection signal="couleur_choisie" from="Level/Pots/PotRouge" to="." method="_on_pot_couleur_choisie"]
