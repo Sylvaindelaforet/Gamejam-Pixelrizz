@@ -30,7 +30,7 @@ func validate_grid():
 		for i_x in range(nb_columns):
 			if colors_grid[i_y][i_x] == "green":
 				count_green += 1
-	return count_green >= 0
+	return count_green == 0
 
 func get_init_grid():
 	return init_grid
