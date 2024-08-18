@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cemvgw0eep3up"]
+[gd_scene load_steps=14 format=3 uid="uid://cemvgw0eep3up"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/Level_1.gd" id="1_bsqey"]
 [ext_resource type="Texture2D" uid="uid://cqox7iek10ogn" path="res://Images/Black.png" id="2_35sc0"]
@@ -8,6 +8,30 @@
 [ext_resource type="Script" path="res://Scenes/Levels/Level.gd" id="4_ir7u4"]
 [ext_resource type="PackedScene" uid="uid://cuhn2m0tamqn8" path="res://Scenes/Pots/pot.tscn" id="4_vjkdm"]
 [ext_resource type="PackedScene" uid="uid://ny50yfb21ig4" path="res://Scenes/info_button.tscn" id="5_6kldi"]
+[ext_resource type="Texture2D" uid="uid://pklraps8hvqd" path="res://Images/Succes/Animation_Success1.png" id="9_0pl0l"]
+[ext_resource type="Texture2D" uid="uid://54l1q6fttpeq" path="res://Images/Succes/Animation_Success2.png" id="10_vkbul"]
+[ext_resource type="Texture2D" uid="uid://jelckkxt4frj" path="res://Images/Succes/Animation_Success3.png" id="11_77hsa"]
+[ext_resource type="Texture2D" uid="uid://cc5kxf0qvloyo" path="res://Images/Succes/Animation_Success4.png" id="12_fnqhd"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_35mwl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_0pl0l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_vkbul")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_77hsa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_fnqhd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Level_1" type="Node2D"]
 script = ExtResource("1_bsqey")
@@ -50,6 +74,11 @@ content = 5
 position = Vector2(805, 122)
 text_to_display = "Bienvenu dans le niveau 1.
 Vous devez "
+
+[node name="AnimSuccess" type="AnimatedSprite2D" parent="Level"]
+position = Vector2(604, 363)
+sprite_frames = SubResource("SpriteFrames_35mwl")
+frame_progress = 0.646993
 
 [connection signal="couleur_choisie" from="Level/Pots/PotBleu" to="." method="_on_pot_couleur_choisie"]
 [connection signal="couleur_choisie" from="Level/Pots/PotRouge" to="." method="_on_pot_couleur_choisie"]

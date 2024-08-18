@@ -49,6 +49,7 @@ func game_over():
 	$InfoButton.show_failure()
 
 func game_success():
+	$AnimSuccess.show()
 	$InfoButton.show_success()
 
 func get_selected_color():
