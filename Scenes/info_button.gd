@@ -23,7 +23,7 @@ func show_success():
 	display()
 
 func show_failure():
-	$Popup/Label.text = "Vous avez perdu.\nCliquez sur le parchemin pour réessayer."
+	$Popup/Label.text = "Vous avez perdu.\n\nCliquez sur le parchemin pour réessayer."
 	current_state = STATE.FAILURE
 	display()
 

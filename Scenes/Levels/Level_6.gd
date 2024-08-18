@@ -4,16 +4,16 @@ extends Node2D
 var next_level = "Level_8"
 var selected_color = "blue"
 var tiles_grid = null
-var grid_x = 36
+var grid_x = 88
 
 
 # Initial state of the grid
 var init_grid = [
-	[  null,   null, "blue", "blue", "blue",   null,   null ],
-	[  null, "blue", "blue", "blue", "blue", "blue",   null ],
-	[  null, "blue", "blue", "blue", "blue", "blue",   null ],
-	["blue", "blue", "blue", "blue", "blue", "blue", "blue" ],
-	["blue", "blue", "blue", "blue", "blue", "blue", "blue" ]
+	[     null,     null,     null,   null,     null,    null ],
+	[ "yellow",    "red",   "blue",  "blue", "green", "green" ],
+	[ "yellow", "yellow", "yellow",  "blue", "green", "green" ],
+	[ "yellow", "yellow", "yellow",  "blue", "green", "green" ],
+	[ "yellow", "yellow", "yellow",  "blue", "green", "green" ]
 ]
 
 
@@ -24,13 +24,22 @@ func validate_grid():
 	var tiles_grid = $Level.get_tiles_grid()
 	var colors_grid = tiles_grid.get_colors_grid()
 	var count_red = 0
+	var count_blue = 0
+	var count_green = 0
+	var count_yellow = 0
 	var nb_rows = len(colors_grid)
 	var nb_columns = len(colors_grid[0])
 	for i_y in range(nb_rows): 
 		for i_x in range(nb_columns):
 			if colors_grid[i_y][i_x] == "red":
 				count_red += 1
-	return count_red >= 5
+			if colors_grid[i_y][i_x] == "blue":
+				count_blue += 1
+			if colors_grid[i_y][i_x] == "green":
+				count_green += 1
+			if colors_grid[i_y][i_x] == "yellow":
+				count_yellow += 1
+	return count_red == 6 and count_blue == 6 and count_green == 6 and count_yellow == 6
 
 func get_init_grid():
 	return init_grid

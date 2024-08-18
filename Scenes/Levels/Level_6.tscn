@@ -39,14 +39,17 @@ region_rect = Rect2(293, 122.5, 25, 5)
 
 [node name="PotBleu" parent="Level/Pots" instance=ExtResource("7_ahaem")]
 position = Vector2(1087, 530)
+content = 2
 
 [node name="PotJaune" parent="Level/Pots" instance=ExtResource("7_ahaem")]
 position = Vector2(1090, 138)
 pot_color = 2
+content = 1
 
 [node name="PotRouge" parent="Level/Pots" instance=ExtResource("7_ahaem")]
 position = Vector2(1088, 335)
 pot_color = 1
+content = 4
 
 [node name="InfoButton" parent="Level" instance=ExtResource("8_aqc41")]
 position = Vector2(805, 122)
