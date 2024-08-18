@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bi1mu8l4yrwcy"]
+[gd_scene load_steps=16 format=3 uid="uid://bi1mu8l4yrwcy"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/Level_4.gd" id="1_4dkj6"]
 [ext_resource type="Texture2D" uid="uid://cqox7iek10ogn" path="res://Images/Black.png" id="2_d3hmf"]
@@ -8,6 +8,32 @@
 [ext_resource type="Texture2D" uid="uid://wleeidxobd5s" path="res://Images/Foreground2.png" id="6_8tjlf"]
 [ext_resource type="PackedScene" uid="uid://cuhn2m0tamqn8" path="res://Scenes/Pots/pot.tscn" id="7_x5w7e"]
 [ext_resource type="PackedScene" uid="uid://ny50yfb21ig4" path="res://Scenes/info_button.tscn" id="8_m432d"]
+[ext_resource type="AudioStream" uid="uid://bk087ibq4fhl3" path="res://Sons/succes.mp3" id="9_qsm3l"]
+[ext_resource type="AudioStream" uid="uid://qa4gbyycf3uc" path="res://Sons/fail.wav" id="10_5so73"]
+[ext_resource type="Texture2D" uid="uid://pklraps8hvqd" path="res://Images/Succes/Animation_Success1.png" id="11_c5kud"]
+[ext_resource type="Texture2D" uid="uid://54l1q6fttpeq" path="res://Images/Succes/Animation_Success2.png" id="12_sqi8d"]
+[ext_resource type="Texture2D" uid="uid://jelckkxt4frj" path="res://Images/Succes/Animation_Success3.png" id="13_lg1np"]
+[ext_resource type="Texture2D" uid="uid://cc5kxf0qvloyo" path="res://Images/Succes/Animation_Success4.png" id="14_uwbs3"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0u0jc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_c5kud")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_sqi8d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_lg1np")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_uwbs3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Level_4" type="Node2D"]
 script = ExtResource("1_4dkj6")
@@ -51,5 +77,16 @@ Si cette couleur se retrouve à côté du jaune,
 Ces deux couleurs vont réair en se transformant en bleu !
 
 Essayez de rendre le fiole entièrement bleue. "
+
+[node name="SuccessSound" type="AudioStreamPlayer" parent="Level"]
+stream = ExtResource("9_qsm3l")
+
+[node name="FailSound" type="AudioStreamPlayer" parent="Level"]
+stream = ExtResource("10_5so73")
+
+[node name="AnimSuccess" type="AnimatedSprite2D" parent="Level"]
+visible = false
+position = Vector2(604, 363)
+sprite_frames = SubResource("SpriteFrames_0u0jc")
 
 [connection signal="couleur_choisie" from="Level/Pots/PotJaune" to="." method="_on_pot_couleur_choisie"]
