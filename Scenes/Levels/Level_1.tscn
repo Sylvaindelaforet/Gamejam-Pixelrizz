@@ -74,8 +74,13 @@ content = 5
 
 [node name="InfoButton" parent="Level" instance=ExtResource("5_6kldi")]
 position = Vector2(805, 122)
-text_to_display = "Bienvenu dans le niveau 1.
-Vous devez "
+text_to_display = "Bienvenue magicien,
+Vous allez apprendre à manipuler le pouvoir des couleurs.
+Pour commencer découvrons le rouge.
+Sa propriété est de monter vers le goulot de la fiole.
+Essayez de placer 5 cases rouges dans la fiole.
+
+Cliquez sur ce parchemin pour le cacher."
 
 [node name="AnimSuccess" type="AnimatedSprite2D" parent="Level"]
 visible = false

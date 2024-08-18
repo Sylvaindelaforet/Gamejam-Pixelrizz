@@ -39,19 +39,24 @@ region_rect = Rect2(293, 122.5, 25, 5)
 
 [node name="PotBleu" parent="Level/Pots" instance=ExtResource("7_psg3u")]
 position = Vector2(1087, 530)
-
-[node name="PotJaune" parent="Level/Pots" instance=ExtResource("7_psg3u")]
-position = Vector2(1090, 138)
-pot_color = 2
+content = 1
 
 [node name="PotRouge" parent="Level/Pots" instance=ExtResource("7_psg3u")]
 position = Vector2(1088, 335)
 pot_color = 1
+content = 3
 
 [node name="InfoButton" parent="Level" instance=ExtResource("8_jai3g")]
 position = Vector2(805, 122)
-text_to_display = "Super génial"
+text_to_display = "Maintenant, nous allons découvrir
+la couleur jaune.
+
+Elle ne se déplace pas dans la fiole, mais elle
+a la propriété de se transformer en rouge si
+au moins 2 cases rouges l'entoure.
+
+Essayez d'utiliser votre pinceau rouge pour faire
+disparaître toutes les cases jaunes."
 
 [connection signal="couleur_choisie" from="Level/Pots/PotBleu" to="." method="_on_pot_couleur_choisie"]
-[connection signal="couleur_choisie" from="Level/Pots/PotJaune" to="." method="_on_pot_couleur_choisie"]
 [connection signal="couleur_choisie" from="Level/Pots/PotRouge" to="." method="_on_pot_couleur_choisie"]

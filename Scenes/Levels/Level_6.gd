@@ -21,7 +21,7 @@ func _ready():
 	update_pinceau(selected_color)
 
 func validate_grid():
-	var tiles_grid = $Centered_View.get_tiles_grid()
+	var tiles_grid = $Level.get_tiles_grid()
 	var colors_grid = tiles_grid.get_colors_grid()
 	var count_red = 0
 	var nb_rows = len(colors_grid)

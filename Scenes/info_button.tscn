@@ -1,13 +1,24 @@
-[gd_scene load_steps=8 format=3 uid="uid://ny50yfb21ig4"]
+[gd_scene load_steps=11 format=3 uid="uid://ny50yfb21ig4"]
 
 [ext_resource type="Script" path="res://Scenes/info_button.gd" id="1_sfbk6"]
 [ext_resource type="Texture2D" uid="uid://co3coev4vm4l7" path="res://Images/manuscript.png" id="2_faant"]
 [ext_resource type="Script" path="res://Scenes/Pots/ClickSprite.gd" id="2_w4jeq"]
 [ext_resource type="Texture2D" uid="uid://c06a5r1sbdurc" path="res://Images/manuscript2.png" id="3_jc3r5"]
+[ext_resource type="FontFile" uid="uid://domlxcso5o4qw" path="res://Giotthany.otf" id="3_urbva"]
 [ext_resource type="AudioStream" uid="uid://dy6qhm56juo16" path="res://Sons/manuscript.mp3" id="5_wfui7"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_4pyt2"]
+font = ExtResource("3_urbva")
+font_size = 80
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_njj5j"]
+font = ExtResource("3_urbva")
+font_size = 50
+font_color = Color(0, 0, 0, 1)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_85u4b"]
-size = Vector2(537.25, 476.5)
+size = Vector2(540.37, 476.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_veqes"]
 size = Vector2(212.611, 114.5)
@@ -20,37 +31,43 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_faant")
 
 [node name="Label" type="Label" parent="Parchemin"]
-offset_left = 15.0
-offset_top = -20.0
-offset_right = 275.0
-offset_bottom = 60.0
+offset_left = -24.0
+offset_top = -46.0
+offset_right = 360.0
+offset_bottom = 87.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 34
 text = "Informations"
+label_settings = SubResource("LabelSettings_4pyt2")
 
 [node name="Popup" type="Sprite2D" parent="."]
 visibility_layer = 513
-position = Vector2(-180, 200)
+position = Vector2(-360.5, 200)
+scale = Vector2(1.30083, 1)
 texture = ExtResource("3_jc3r5")
 
 [node name="Label" type="Label" parent="Popup"]
 visibility_layer = 513
-offset_left = -135.0
-offset_top = -85.0
-offset_right = 376.0
-offset_bottom = 240.0
+texture_filter = 1
+offset_left = -130.0
+offset_top = -78.0
+offset_right = 885.0
+offset_bottom = 450.0
+scale = Vector2(0.5, 0.5)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 12
 text = "Texte vide
 "
+label_settings = SubResource("LabelSettings_njj5j")
 horizontal_alignment = 1
+vertical_alignment = 1
 autowrap_mode = 1
 
 [node name="BigPar" type="Area2D" parent="Popup"]
 script = ExtResource("2_w4jeq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Popup/BigPar"]
-position = Vector2(128.375, 68.75)
+position = Vector2(126.815, 68.75)
 shape = SubResource("RectangleShape2D_85u4b")
 
 [node name="Area2D" type="Area2D" parent="."]

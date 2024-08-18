@@ -37,9 +37,6 @@ region_rect = Rect2(293, 122.5, 25, 5)
 
 [node name="Pots" type="Node2D" parent="Level"]
 
-[node name="PotBleu" parent="Level/Pots" instance=ExtResource("7_jin1c")]
-position = Vector2(1087, 530)
-
 [node name="PotJaune" parent="Level/Pots" instance=ExtResource("7_jin1c")]
 position = Vector2(1090, 138)
 pot_color = 2
@@ -50,8 +47,12 @@ pot_color = 1
 
 [node name="InfoButton" parent="Level" instance=ExtResource("8_m7gbk")]
 position = Vector2(805, 122)
-text_to_display = "Super génial"
+text_to_display = "Vous progressez !
 
-[connection signal="couleur_choisie" from="Level/Pots/PotBleu" to="." method="_on_pot_couleur_choisie"]
+Voyons si vous avez bien assimilé...
+
+Essayez encore une fois de faire disparaître
+toutes les case jaunes. "
+
 [connection signal="couleur_choisie" from="Level/Pots/PotJaune" to="." method="_on_pot_couleur_choisie"]
 [connection signal="couleur_choisie" from="Level/Pots/PotRouge" to="." method="_on_pot_couleur_choisie"]

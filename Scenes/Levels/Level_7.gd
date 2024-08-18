@@ -23,7 +23,7 @@ func _ready():
 	update_pinceau(selected_color)
 
 func validate_grid():
-	var tiles_grid = $Centered_View.get_tiles_grid()
+	var tiles_grid = $Level.get_tiles_grid()
 	var colors_grid = tiles_grid.get_colors_grid()
 	var count_red = 0
 	var nb_rows = len(colors_grid)
@@ -46,7 +46,7 @@ func get_selected_color():
 func load_next_level():
 	var final_message_scene = load("res://Scenes/Levels/Final_Message.tscn")
 	var final_message = final_message_scene.instantiate()
-	$Centered_View.add_child(final_message)
+	$Level.add_child(final_message)
 
 func _on_pot_couleur_choisie(pot_color):
 	selected_color = pot_color

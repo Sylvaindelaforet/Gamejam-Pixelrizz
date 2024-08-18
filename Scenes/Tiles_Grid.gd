@@ -203,6 +203,8 @@ func apply_transformations(old_grid, new_grid):
 			new_grid[i_y][i_x] = new_value
 
 
+var next_step = "apply_gravity"
+
 func get_new_grid(old_grid):
 	var nb_rows = len(old_grid)
 	var nb_columns = len(old_grid[0])
@@ -213,9 +215,12 @@ func get_new_grid(old_grid):
 		for i_x in range(nb_columns):
 			new_grid[i_y].append(null)
 	# fill the new grid
-	apply_gravity(old_grid, new_grid)
-	old_grid = create_grid_copy(new_grid)
-	apply_transformations(old_grid, new_grid)
+	if next_step == "apply_gravity":
+		apply_gravity(old_grid, new_grid)
+		next_step = "apply_transformations"
+	else:
+		apply_transformations(old_grid, new_grid)
+		next_step = "apply_gravity"
 	return new_grid
 
 # we assume the dimensions are the same
@@ -252,20 +257,27 @@ func update_textures():
 				tiles_lists[i_y][i_x].set_color(colors_grid[i_y][i_x])
 
 
+var count_if_gravity_or_transformations_are_finished = 0
+
 func propagate():
 	var new_grid = get_new_grid(colors_grid)
 	var has_changed = !is_same_grid(colors_grid, new_grid)
 	if has_changed:
 		# 1 s de delai entre chaque propagation
+		count_if_gravity_or_transformations_are_finished = 0
 		colors_grid = new_grid
 		update_textures()
 		$Propagation_Timer.start()
 	else:
-		is_propagating = false
-		if level.validate_grid() == true:
-			level.game_success()
-		elif level.game_is_lost():
-			level.game_over()
+		count_if_gravity_or_transformations_are_finished += 1
+		if count_if_gravity_or_transformations_are_finished == 2:
+			is_propagating = false
+			if level.validate_grid() == true:
+				level.game_success()
+			elif level.game_is_lost():
+				level.game_over()
+		else:
+			$Propagation_Timer.start()
 
 func _on_propagation_timer_timeout():
 	propagate()

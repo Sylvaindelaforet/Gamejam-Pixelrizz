@@ -2,15 +2,15 @@ extends Node2D
 
 
 var next_level = "Level_4"
-var selected_color = "blue"
+var selected_color = "red"
 var tiles_grid = null
 var grid_x = 36
 
 
 # Initial state of the grid
 var init_grid = [
-	[  null,   null, "blue", "blue", "blue",   null,   null ],
-	[  null, "blue", "blue", "blue", "blue", "blue",   null ],
+	[  null,   null, "red", "red", "blue",   null,   null ],
+	[  null, "blue", "red", "blue", "blue", "blue",   null ],
 	[  null, "blue", "blue", "blue", "blue", "blue",   null ],
 	["blue", "blue", "blue", "blue", "blue", "blue", "blue" ],
 	["blue", "blue", "blue", "blue", "blue", "blue", "blue" ]
@@ -21,7 +21,7 @@ func _ready():
 	update_pinceau(selected_color)
 
 func validate_grid():
-	var tiles_grid = $Centered_View.get_tiles_grid()
+	var tiles_grid = $Level.get_tiles_grid()
 	var colors_grid = tiles_grid.get_colors_grid()
 	var count_red = 0
 	var nb_rows = len(colors_grid)
