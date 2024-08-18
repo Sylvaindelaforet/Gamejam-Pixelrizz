@@ -64,23 +64,25 @@ region_rect = Rect2(293, 122.5, 25, 5)
 
 [node name="Pots" type="Node2D" parent="Level"]
 
-[node name="PotBleu" parent="Level/Pots" instance=ExtResource("7_ukvw0")]
-position = Vector2(1087, 530)
-content = 20
-
 [node name="PotJaune" parent="Level/Pots" instance=ExtResource("7_ukvw0")]
 position = Vector2(1090, 138)
 pot_color = 2
-content = 20
+content = 1
 
 [node name="PotRouge" parent="Level/Pots" instance=ExtResource("7_ukvw0")]
 position = Vector2(1088, 335)
 pot_color = 1
-content = 20
+content = 2
 
 [node name="InfoButton" parent="Level" instance=ExtResource("8_gw5js")]
 position = Vector2(805, 122)
-text_to_display = "Super génial"
+text_to_display = "Enfin, pour terminer, faites disparître
+toutes les cases jaunes et vertes.
+
+(ce n'est pas très compliqué mais votre maître
+à la flemme d'y réfléchir
+lui-même)
+"
 
 [node name="SuccessSound" type="AudioStreamPlayer" parent="Level"]
 stream = ExtResource("9_rfmtq")
@@ -96,6 +98,5 @@ sprite_frames = SubResource("SpriteFrames_nhor0")
 [node name="GameWon" type="AudioStreamPlayer" parent="Level"]
 stream = ExtResource("15_weyp0")
 
-[connection signal="couleur_choisie" from="Level/Pots/PotBleu" to="." method="_on_pot_couleur_choisie"]
 [connection signal="couleur_choisie" from="Level/Pots/PotJaune" to="." method="_on_pot_couleur_choisie"]
 [connection signal="couleur_choisie" from="Level/Pots/PotRouge" to="." method="_on_pot_couleur_choisie"]

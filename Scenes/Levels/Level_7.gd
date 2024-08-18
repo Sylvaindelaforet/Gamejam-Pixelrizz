@@ -9,13 +9,12 @@ var grid_x = 76
 
 # Initial state of the grid
 var init_grid = [
-	[     null,     null,     null,     null,     null,     null,     null,     null,     null,   null ],
-	[   "yellow",   "yellow",   "yellow",   "yellow",   "yellow",   "yellow",   "yellow",   "yellow",   "yellow",   "yellow" ],
-	[   "yellow",   "yellow",   "yellow",   "yellow",   "yellow",   "yellow",   "yellow",   "yellow",   "yellow",   "yellow" ],
-	[   "yellow",   "yellow",   "yellow",   "yellow",   "yellow",   "yellow",   "yellow",   "yellow",   "yellow",   "yellow" ],
-	[   "yellow",   "yellow",   "yellow",   "yellow",   "yellow",   "yellow",   "yellow",   "yellow",   "yellow",   "yellow" ],
-	[   "yellow",   "yellow",   "yellow",   "yellow",   "yellow",   "yellow",   "yellow",   "yellow",   "yellow",   "yellow" ],
-	[   "blue",   "blue",   "blue",   "green",   "blue",   "blue",   "blue",   "blue",   "blue",   "blue" ]
+	[     null,     null,     null,     null,     null,     null,     null,     null],
+	[   "blue", "blue", "yellow", "yellow", "yellow", "yellow", "yellow",   "blue" ],
+	[     "blue", "blue",   "blue", "yellow",   "blue", "yellow",   "blue",   "blue" ],
+	[     "blue",   "blue",   "blue",   "blue",   "blue",   "blue",   "blue",   "blue" ],
+	[     "blue",   "blue",   "blue",   "blue",   "blue",   "blue",   "blue",   "blue" ],
+	[     "blue",   "blue",  "green",  "green",   "green",   "green",  "blue",  "blue" ]
 ]
 
 
@@ -26,14 +25,17 @@ func _ready():
 func validate_grid():
 	var tiles_grid = $Level.get_tiles_grid()
 	var colors_grid = tiles_grid.get_colors_grid()
-	var count_red = 0
+	var count_green = 0
+	var count_yellow = 0
 	var nb_rows = len(colors_grid)
 	var nb_columns = len(colors_grid[0])
 	for i_y in range(nb_rows): 
 		for i_x in range(nb_columns):
-			if colors_grid[i_y][i_x] == "red":
-				count_red += 1
-	return false # count_red >= 5
+			if colors_grid[i_y][i_x] == "green":
+				count_green += 1
+			if colors_grid[i_y][i_x] == "yellow":
+				count_yellow += 1
+	return count_green == 0 and count_yellow == 0
 
 func get_init_grid():
 	return init_grid
