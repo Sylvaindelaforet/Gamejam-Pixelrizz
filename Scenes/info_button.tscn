@@ -12,7 +12,7 @@ font = ExtResource("3_urbva")
 font_size = 80
 font_color = Color(0, 0, 0, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_njj5j"]
+[sub_resource type="LabelSettings" id="LabelSettings_11s5i"]
 font = ExtResource("3_urbva")
 font_size = 50
 font_color = Color(0, 0, 0, 1)
@@ -58,7 +58,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 12
 text = "Texte vide
 "
-label_settings = SubResource("LabelSettings_njj5j")
+label_settings = SubResource("LabelSettings_11s5i")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 1

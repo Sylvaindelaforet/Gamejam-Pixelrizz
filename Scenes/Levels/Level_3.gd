@@ -9,8 +9,8 @@ var grid_x = 36
 
 # Initial state of the grid
 var init_grid = [
-	[  null,   null, "red", "red", "blue",   null,   null ],
-	[  null, "blue", "red", "blue", "blue", "blue",   null ],
+	[  null,   null,  "red",  "red", "blue",   null,   null ],
+	[  null, "blue",  "red", "blue", "blue", "blue",   null ],
 	[  null, "blue", "blue", "blue", "blue", "blue",   null ],
 	["blue", "blue", "blue", "blue", "blue", "blue", "blue" ],
 	["blue", "blue", "blue", "blue", "blue", "blue", "blue" ]

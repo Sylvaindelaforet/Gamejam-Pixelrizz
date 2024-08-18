@@ -102,6 +102,10 @@ func user_clicked_on_tile(i_x, i_y):
 	var current_color = colors_grid[i_y][i_x]
 	var selected_pot = level.get_pot_by_color(selected_color)
 	if !is_propagating and selected_color != current_color and !selected_pot.is_empty():
+		# reinit propagation
+		count_if_gravity_or_transformations_are_finished = 0
+		next_step = "apply_gravity"
+		# start propagation
 		colors_grid[i_y][i_x] = selected_color
 		tiles_lists[i_y][i_x].set_color(selected_color)
 		selected_pot.remove_1()
