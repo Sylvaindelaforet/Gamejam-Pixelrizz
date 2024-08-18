@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://4gea5c8ks2xl"]
+[gd_scene load_steps=17 format=3 uid="uid://4gea5c8ks2xl"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/Level_7.gd" id="1_cicxn"]
 [ext_resource type="Texture2D" uid="uid://cqox7iek10ogn" path="res://Images/Black.png" id="2_d55a6"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://54l1q6fttpeq" path="res://Images/Succes/Animation_Success2.png" id="12_mvxg4"]
 [ext_resource type="Texture2D" uid="uid://jelckkxt4frj" path="res://Images/Succes/Animation_Success3.png" id="13_xu45h"]
 [ext_resource type="Texture2D" uid="uid://cc5kxf0qvloyo" path="res://Images/Succes/Animation_Success4.png" id="14_we4er"]
+[ext_resource type="AudioStream" uid="uid://fpfsv7vaniju" path="res://Sons/successSongBetter.wav" id="15_weyp0"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_nhor0"]
 animations = [{
@@ -89,6 +90,9 @@ stream = ExtResource("10_8tnba")
 visible = false
 position = Vector2(604, 363)
 sprite_frames = SubResource("SpriteFrames_nhor0")
+
+[node name="GameWon" type="AudioStreamPlayer" parent="Level"]
+stream = ExtResource("15_weyp0")
 
 [connection signal="couleur_choisie" from="Level/Pots/PotBleu" to="." method="_on_pot_couleur_choisie"]
 [connection signal="couleur_choisie" from="Level/Pots/PotJaune" to="." method="_on_pot_couleur_choisie"]
