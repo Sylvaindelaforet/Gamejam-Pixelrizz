@@ -46,10 +46,10 @@ func game_is_lost():
 	return true
 
 func game_over():
-	restart_level()
+	$InfoButton.show_failure()
 
 func game_success():
-	get_parent().load_next_level()
+	$InfoButton.show_success()
 
 func get_selected_color():
 	return get_parent().get_selected_color()
