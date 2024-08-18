@@ -23,9 +23,10 @@ var tiles_lists = []
 
 
 # the grid is placed in order to occupy all the window's height
-var x_margin = 20
-var y_margin = 100
-var colors = ["red", "blue", "green", "yellow"]
+var x_min = 36
+var y_min = 220
+var y_max = 600
+var colors = ["red", "blue", "green", "yellow", "purple"]
 
 # the same textures will be preloaded for all the tiles
 var tiles_textures = {}  # { "red": red_texture, ... }
@@ -40,25 +41,28 @@ func _process(delta):
 	pass
 
 
-func init(_level, _init_grid, _window_width, _window_height):
+func init(_level, _init_grid):
 	level = _level
+	x_min = _level.get_grid_x()
 	colors_grid = create_grid_copy(_init_grid)
 	load_textures()
-	init_tiles(_window_width, _window_height)
+	init_tiles()
 
 
-func init_tiles(_window_width, _window_height):
+func init_tiles():
 	var nb_rows = len(colors_grid)
 	var nb_columns = len(colors_grid[0])
 	# total grid length
-	var grid_height = _window_height - 2 * y_margin
+	#var grid_height = _window_height - 2 * y_margin
+	var grid_height = y_max - y_min
 	# we deduce the dimensions of 1 tile
 	var tile_size = grid_height / nb_rows
 	var tile_width = tile_size
 	var tile_height = tile_size
 	# first tile position: bottom left
-	var x_0 = x_margin # to center: (_window_width - nb_columns * tile_width) / 2
-	var y_0 = y_margin  # warning: y-axis is upside-down
+	var x_0 = x_min
+	# x_margin # to center: (_window_width - nb_columns * tile_width) / 2
+	var y_0 = y_min # y_margin  # warning: y-axis is upside-down
 	# init the tiles grid
 	tiles_lists = []
 	for i_y in range(nb_rows): 
@@ -96,9 +100,11 @@ var is_propagating = false
 func user_clicked_on_tile(i_x, i_y):
 	var selected_color = level.get_selected_color()
 	var current_color = colors_grid[i_y][i_x]
-	if !is_propagating and selected_color != current_color:
+	var selected_pot = level.get_pot_by_color(selected_color)
+	if !is_propagating and selected_color != current_color and !selected_pot.is_empty():
 		colors_grid[i_y][i_x] = selected_color
 		tiles_lists[i_y][i_x].set_color(selected_color)
+		selected_pot.remove_1()
 		is_propagating = true
 		$Propagation_Timer.start()
 	else:
@@ -257,7 +263,9 @@ func propagate():
 	else:
 		is_propagating = false
 		if level.validate_grid() == true:
-			level.next_level()
+			level.game_success()
+		elif level.game_is_lost():
+			level.game_over()
 
 func _on_propagation_timer_timeout():
 	propagate()

@@ -1,0 +1,57 @@
+[gd_scene load_steps=9 format=3 uid="uid://dvfa1unlgur8s"]
+
+[ext_resource type="Script" path="res://Scenes/Levels/Level_5.gd" id="1_m2qbv"]
+[ext_resource type="Texture2D" uid="uid://cqox7iek10ogn" path="res://Images/Black.png" id="2_2vout"]
+[ext_resource type="Script" path="res://Scenes/Levels/Black.gd" id="3_c5jrc"]
+[ext_resource type="Script" path="res://Scenes/Levels/Level.gd" id="4_bd5rr"]
+[ext_resource type="Texture2D" uid="uid://dr78kwwgbfoih" path="res://Images/Background1.png" id="5_qcq6v"]
+[ext_resource type="Texture2D" uid="uid://bym40hhl72rtp" path="res://Images/Foreground1.png" id="6_q5mp6"]
+[ext_resource type="PackedScene" uid="uid://cuhn2m0tamqn8" path="res://Scenes/Pots/pot.tscn" id="7_814hn"]
+[ext_resource type="PackedScene" uid="uid://ny50yfb21ig4" path="res://Scenes/info_button.tscn" id="8_tbf4r"]
+
+[node name="Level_5" type="Node2D"]
+script = ExtResource("1_m2qbv")
+
+[node name="Black" type="Sprite2D" parent="."]
+texture = ExtResource("2_2vout")
+centered = false
+region_rect = Rect2(293, 122.5, 25, 5)
+script = ExtResource("3_c5jrc")
+
+[node name="Level" type="Node2D" parent="."]
+position = Vector2(40, 0)
+script = ExtResource("4_bd5rr")
+
+[node name="Background" type="Sprite2D" parent="Level"]
+texture = ExtResource("5_qcq6v")
+offset = Vector2(600, 360)
+region_rect = Rect2(293, 122.5, 25, 5)
+
+[node name="Position_For_Tiles_Grid" type="Node2D" parent="Level"]
+
+[node name="Foreground" type="Sprite2D" parent="Level"]
+texture_filter = 1
+texture = ExtResource("6_q5mp6")
+offset = Vector2(600, 360)
+region_rect = Rect2(293, 122.5, 25, 5)
+
+[node name="Pots" type="Node2D" parent="Level"]
+
+[node name="PotBleu" parent="Level/Pots" instance=ExtResource("7_814hn")]
+position = Vector2(1087, 530)
+
+[node name="PotJaune" parent="Level/Pots" instance=ExtResource("7_814hn")]
+position = Vector2(1090, 138)
+pot_color = 2
+
+[node name="PotRouge" parent="Level/Pots" instance=ExtResource("7_814hn")]
+position = Vector2(1088, 335)
+pot_color = 1
+
+[node name="InfoButton" parent="Level" instance=ExtResource("8_tbf4r")]
+position = Vector2(805, 122)
+text_to_display = "Super génial"
+
+[connection signal="couleur_choisie" from="Level/Pots/PotBleu" to="." method="_on_pot_couleur_choisie"]
+[connection signal="couleur_choisie" from="Level/Pots/PotJaune" to="." method="_on_pot_couleur_choisie"]
+[connection signal="couleur_choisie" from="Level/Pots/PotRouge" to="." method="_on_pot_couleur_choisie"]

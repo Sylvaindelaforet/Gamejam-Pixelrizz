@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://brfvsjq60nxmo"
-path="res://.godot/imported/pinceau_bleu.png-7d032baa59b0faa932f5ad4ac6d9a93c.ctex"
+uid="uid://dr1kyosgg1sqk"
+path="res://.godot/imported/Tile_purple.png-ababbb7a36f2de663fc17f17fbcdda67.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/Pinceaux/pinceau_bleu.png"
-dest_files=["res://.godot/imported/pinceau_bleu.png-7d032baa59b0faa932f5ad4ac6d9a93c.ctex"]
+source_file="res://Images/Tile_purple.png"
+dest_files=["res://.godot/imported/Tile_purple.png-ababbb7a36f2de663fc17f17fbcdda67.ctex"]
 
 [params]
 

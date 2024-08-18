@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://7if2lj443xuc"]
+
+[ext_resource type="Texture2D" uid="uid://cqox7iek10ogn" path="res://Images/Black.png" id="1_bysqo"]
+
+[node name="FinalMessage" type="Node2D"]
+position = Vector2(600, 360)
+
+[node name="Black" type="Sprite2D" parent="."]
+texture = ExtResource("1_bysqo")
+region_rect = Rect2(293, 122.5, 25, 5)
+
+[node name="Label" type="Label" parent="Black"]
+offset_left = -26.0
+offset_top = -14.0
+offset_right = 28.0
+offset_bottom = 9.0
+text = "Bravo !"

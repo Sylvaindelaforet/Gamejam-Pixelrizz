@@ -11,10 +11,24 @@ var color_to_int = {
 signal couleur_choisie(pot_color)
 
 @export var pot_color : COLORS
+@export var content : int
 
 func _ready():
 	_choose_sprite()
+	update_label()
 
+# reduce by 1 the content of the pot
+func remove_1():
+	if content > 0:
+		content -= 1
+		update_label()
+
+#reduce by 1 the content of the pot
+func is_empty():
+	return content == 0
+
+func update_label():
+	$Label.set_text(str(content))
 
 func _choose_sprite():
 	match pot_color:

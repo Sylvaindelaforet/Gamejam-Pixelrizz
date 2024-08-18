@@ -1,18 +1,21 @@
 extends Node2D
 
 
-var next_level = "Level_3"
+var next_level = null
 var selected_color = "blue"
 var tiles_grid = null
-var grid_x = 17
+var grid_x = 36
 
 
 # Initial state of the grid
 var init_grid = [
-	[  null,     null,   "blue",   "blue",     null,   null ],
-	[  null,   "blue",   "blue",   "blue",   "blue",   null ],
-	["blue", "yellow", "yellow", "yellow", "yellow", "blue" ],
-	["blue",   "blue",   "blue",   "blue",   "blue", "blue" ]
+	[  null,   null,   null, "blue", "blue", "blue", "blue",   null,   null,   null ],
+	[  null,   null,   null, "blue", "blue", "blue", "blue",   null,   null,   null ],
+	[  null,   null, "blue", "blue", "blue", "blue", "blue", "blue",   null,   null ],
+	[  null, "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue",   null ],
+	[  null, "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue",   null ],
+	["blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue" ],
+	["blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue" ]
 ]
 
 
@@ -41,7 +44,9 @@ func get_selected_color():
 	return selected_color
 
 func load_next_level():
-	get_tree().change_scene_to_file("res://Scenes/Levels/"+next_level+".tscn")
+	var final_message_scene = load("res://Scenes/Levels/Final_Message.tscn")
+	var final_message = final_message_scene.instantiate()
+	$Centered_View.add_child(final_message)
 
 func _on_pot_couleur_choisie(pot_color):
 	selected_color = pot_color

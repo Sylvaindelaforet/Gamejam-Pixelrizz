@@ -1,0 +1,49 @@
+[gd_scene load_steps=9 format=3 uid="uid://bi1mu8l4yrwcy"]
+
+[ext_resource type="Script" path="res://Scenes/Levels/Level_4.gd" id="1_4dkj6"]
+[ext_resource type="Texture2D" uid="uid://cqox7iek10ogn" path="res://Images/Black.png" id="2_d3hmf"]
+[ext_resource type="Script" path="res://Scenes/Levels/Black.gd" id="3_yne0d"]
+[ext_resource type="Script" path="res://Scenes/Levels/Level.gd" id="4_kju2n"]
+[ext_resource type="Texture2D" uid="uid://dr78kwwgbfoih" path="res://Images/Background1.png" id="5_1b86v"]
+[ext_resource type="Texture2D" uid="uid://bym40hhl72rtp" path="res://Images/Foreground1.png" id="6_c2cfi"]
+[ext_resource type="PackedScene" uid="uid://cuhn2m0tamqn8" path="res://Scenes/Pots/pot.tscn" id="7_x5w7e"]
+[ext_resource type="PackedScene" uid="uid://ny50yfb21ig4" path="res://Scenes/info_button.tscn" id="8_m432d"]
+
+[node name="Level_4" type="Node2D"]
+script = ExtResource("1_4dkj6")
+
+[node name="Black" type="Sprite2D" parent="."]
+texture = ExtResource("2_d3hmf")
+centered = false
+region_rect = Rect2(293, 122.5, 25, 5)
+script = ExtResource("3_yne0d")
+
+[node name="Level" type="Node2D" parent="."]
+position = Vector2(40, 0)
+script = ExtResource("4_kju2n")
+
+[node name="Background" type="Sprite2D" parent="Level"]
+texture = ExtResource("5_1b86v")
+offset = Vector2(600, 360)
+region_rect = Rect2(293, 122.5, 25, 5)
+
+[node name="Position_For_Tiles_Grid" type="Node2D" parent="Level"]
+
+[node name="Foreground" type="Sprite2D" parent="Level"]
+texture_filter = 1
+texture = ExtResource("6_c2cfi")
+offset = Vector2(600, 360)
+region_rect = Rect2(293, 122.5, 25, 5)
+
+[node name="Pots" type="Node2D" parent="Level"]
+
+[node name="PotJaune" parent="Level/Pots" instance=ExtResource("7_x5w7e")]
+position = Vector2(1090, 138)
+pot_color = 2
+content = 2
+
+[node name="InfoButton" parent="Level" instance=ExtResource("8_m432d")]
+position = Vector2(805, 122)
+text_to_display = "Super génial"
+
+[connection signal="couleur_choisie" from="Level/Pots/PotJaune" to="." method="_on_pot_couleur_choisie"]

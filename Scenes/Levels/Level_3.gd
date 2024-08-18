@@ -1,38 +1,59 @@
 extends Node2D
 
 
-var selected_color = "red"
+var next_level = "Level_4"
+var selected_color = "blue"
+var tiles_grid = null
+var grid_x = 36
+
 
 # Initial state of the grid
 var init_grid = [
-	[ "blue", "blue", "blue", "blue" ],
-	[ "blue", "blue", "blue", "blue" ],
-	[ "blue", "blue", "blue", "blue" ],
-	[ "blue", "blue", "blue", "blue" ],
-	[ "blue", "blue", "blue", "blue" ],
-	[ "blue", "blue", "blue", "blue" ],
-	[ "blue", "blue", "blue", "blue" ]
+	[  null,   null, "blue", "blue", "blue",   null,   null ],
+	[  null, "blue", "blue", "blue", "blue", "blue",   null ],
+	[  null, "blue", "blue", "blue", "blue", "blue",   null ],
+	["blue", "blue", "blue", "blue", "blue", "blue", "blue" ],
+	["blue", "blue", "blue", "blue", "blue", "blue", "blue" ]
 ]
 
 
 func _ready():
-	var tiles_grid_scene = load("res://Scenes/Tiles_Grid.tscn")
-	var tiles_grid = tiles_grid_scene.instantiate()
-	var window_width = get_viewport().size.x
-	var window_height = get_viewport().size.y
-	tiles_grid.init(self, init_grid, window_width, window_height)
-	$Position_For_Tiles_Grid.add_child(tiles_grid)
+	update_pinceau(selected_color)
 
+func validate_grid():
+	var tiles_grid = $Centered_View.get_tiles_grid()
+	var colors_grid = tiles_grid.get_colors_grid()
+	var count_red = 0
+	var nb_rows = len(colors_grid)
+	var nb_columns = len(colors_grid[0])
+	for i_y in range(nb_rows): 
+		for i_x in range(nb_columns):
+			if colors_grid[i_y][i_x] == "red":
+				count_red += 1
+	return count_red >= 5
 
-func _process(delta):
-	pass
+func get_init_grid():
+	return init_grid
 
-func change_selected_color():
-	pass
+func get_grid_x():
+	return grid_x
 
 func get_selected_color():
 	return selected_color
 
-func next_level():
-	get_tree().change_scene("res://Scenes/Levels/Level_1.tscn")
+func load_next_level():
+	get_tree().change_scene_to_file("res://Scenes/Levels/"+next_level+".tscn")
+
+func _on_pot_couleur_choisie(pot_color):
+	selected_color = pot_color
+	update_pinceau(pot_color)
+
+func update_pinceau(color):
+	match color:
+		"red":
+			Input.set_custom_mouse_cursor(load("res://Images/Pinceaux/pinceau_rouge.png"))
+		"blue":
+			Input.set_custom_mouse_cursor(load("res://Images/Pinceaux/pinceau_bleu.png"))
+		"yellow":
+			Input.set_custom_mouse_cursor(load("res://Images/Pinceaux/pinceau_jaune.png"))
 

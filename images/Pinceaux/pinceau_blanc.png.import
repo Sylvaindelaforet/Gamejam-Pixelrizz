@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://clyep07c5u2q3"
-path="res://.godot/imported/pinceau_blanc.png-d0b2c6fb9081e8fe452533552ec6bb87.ctex"
+path="res://.godot/imported/pinceau_blanc.png-041bfb1c42ac3941b6ed291f8b388747.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/Pinceaux/pinceau_blanc.png"
-dest_files=["res://.godot/imported/pinceau_blanc.png-d0b2c6fb9081e8fe452533552ec6bb87.ctex"]
+source_file="res://Images/Pinceaux/pinceau_blanc.png"
+dest_files=["res://.godot/imported/pinceau_blanc.png-041bfb1c42ac3941b6ed291f8b388747.ctex"]
 
 [params]
 
