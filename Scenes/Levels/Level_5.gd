@@ -9,9 +9,9 @@ var grid_x = 36
 
 # Initial state of the grid
 var init_grid = [
-	[  null,   null, "blue", "blue", "blue",   null,   null ],
-	[  null, "blue", "blue", "blue", "blue", "blue",   null ],
-	[  null, "blue", "blue", "blue", "blue", "blue",   null ],
+	[  null,   "blue", "green", "green", "green",   "blue",   null ],
+	[  "blue", "blue", "blue", "blue", "blue", "blue",   "blue" ],
+	[  "blue", "blue", "green", "green", "green", "blue",   "blue" ],
 	["blue", "blue", "blue", "blue", "blue", "blue", "blue" ],
 	["blue", "blue", "blue", "blue", "blue", "blue", "blue" ]
 ]
@@ -23,14 +23,13 @@ func _ready():
 func validate_grid():
 	var tiles_grid = $Level.get_tiles_grid()
 	var colors_grid = tiles_grid.get_colors_grid()
-	var count_red = 0
+	var count_blue = false
 	var nb_rows = len(colors_grid)
 	var nb_columns = len(colors_grid[0])
-	for i_y in range(nb_rows): 
-		for i_x in range(nb_columns):
-			if colors_grid[i_y][i_x] == "red":
-				count_red += 1
-	return count_red >= 5
+	count_blue = count_blue or (colors_grid[2][2] != "blue" and colors_grid[3][2] != "blue" and colors_grid[4][2] != "blue")
+	count_blue = count_blue or (colors_grid[2][3] != "blue" and colors_grid[3][3] != "blue" and colors_grid[4][3] != "blue")
+	count_blue = count_blue or (colors_grid[2][4] != "blue" and colors_grid[3][4] != "blue" and colors_grid[4][4] != "blue")
+	return count_blue
 
 func get_init_grid():
 	return init_grid
