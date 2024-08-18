@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://cqox7iek10ogn" path="res://Images/Black.png" id="2_0vec5"]
 [ext_resource type="Script" path="res://Scenes/Levels/Black.gd" id="3_lsf2b"]
 [ext_resource type="Script" path="res://Scenes/Levels/Level.gd" id="4_chd26"]
-[ext_resource type="Texture2D" uid="uid://dr78kwwgbfoih" path="res://Images/Background1.png" id="5_puxaq"]
-[ext_resource type="Texture2D" uid="uid://bym40hhl72rtp" path="res://Images/Foreground1.png" id="6_vjy7l"]
+[ext_resource type="Texture2D" uid="uid://q4xa0xe58egt" path="res://Images/Background3.png" id="5_txaje"]
+[ext_resource type="Texture2D" uid="uid://di6l6nhadmqiw" path="res://Images/Foreground3.png" id="6_6sc0x"]
 [ext_resource type="PackedScene" uid="uid://cuhn2m0tamqn8" path="res://Scenes/Pots/pot.tscn" id="7_ahaem"]
 [ext_resource type="PackedScene" uid="uid://ny50yfb21ig4" path="res://Scenes/info_button.tscn" id="8_aqc41"]
 
@@ -23,7 +23,7 @@ position = Vector2(40, 0)
 script = ExtResource("4_chd26")
 
 [node name="Background" type="Sprite2D" parent="Level"]
-texture = ExtResource("5_puxaq")
+texture = ExtResource("5_txaje")
 offset = Vector2(600, 360)
 region_rect = Rect2(293, 122.5, 25, 5)
 
@@ -31,7 +31,7 @@ region_rect = Rect2(293, 122.5, 25, 5)
 
 [node name="Foreground" type="Sprite2D" parent="Level"]
 texture_filter = 1
-texture = ExtResource("6_vjy7l")
+texture = ExtResource("6_6sc0x")
 offset = Vector2(600, 360)
 region_rect = Rect2(293, 122.5, 25, 5)
 

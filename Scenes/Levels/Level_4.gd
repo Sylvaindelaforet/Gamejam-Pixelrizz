@@ -4,18 +4,16 @@ extends Node2D
 var next_level = "Level_5"
 var selected_color = "yellow"
 var tiles_grid = null
-var grid_x = 36
+var grid_x = 40
 
 
 # Initial state of the grid
 var init_grid = [
-	[  null,   null,   null,  "blue",  "blue",  "blue",  "blue",   null,   null,   null ],
-	[  null,   null,   null,  "blue", "green",  "blue",  "blue",   null,   null,   null ],
-	[  null,   null, "blue", "green",  "blue", "green",  "blue", "blue",   null,   null ],
-	[  null, "blue", "blue",  "blue", "green",  "blue", "green", "blue", "blue",   null ],
-	[  null, "blue", "blue",  "blue",  "blue",  "blue",  "blue", "blue", "blue",   null ],
-	["blue", "blue", "blue",  "blue", "green", "green", "green", "blue", "blue", "blue" ],
-	["blue", "blue", "blue",  "blue",  "blue",  "blue",  "blue", "blue", "blue", "blue" ]
+	[   null,  "blue", "blue", "green",  "blue",  "blue",   null ],
+	[ "blue", "green", "blue", "green",  "blue",  "blue", "blue" ],
+	[ "blue",  "blue", "blue", "green",  "blue", "green", "blue" ],
+	[ "blue",  "blue", "blue",  "blue",  "blue",  "blue", "blue" ],
+	[ "blue",  "blue", "blue", "green", "green", "green", "blue" ]
 ]
 
 

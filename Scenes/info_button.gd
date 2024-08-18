@@ -17,7 +17,7 @@ func display():
 	$Popup.show()
 
 func show_success():
-	$Popup/Label.text = "Vous avez gagné!\nCliquez sur le parchemin pour passer au niveau suivant"
+	$Popup/Label.text = "Vous avez gagné!\n\nCliquez sur le parchemin pour passer au niveau suivant"
 	current_state = STATE.SUCCESS
 	display()
 

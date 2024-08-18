@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://cqox7iek10ogn" path="res://Images/Black.png" id="2_d55a6"]
 [ext_resource type="Script" path="res://Scenes/Levels/Black.gd" id="3_6vfa3"]
 [ext_resource type="Script" path="res://Scenes/Levels/Level.gd" id="4_ihtmy"]
-[ext_resource type="Texture2D" uid="uid://dr78kwwgbfoih" path="res://Images/Background1.png" id="5_v2cpl"]
-[ext_resource type="Texture2D" uid="uid://bym40hhl72rtp" path="res://Images/Foreground1.png" id="6_i1vro"]
+[ext_resource type="Texture2D" uid="uid://q4xa0xe58egt" path="res://Images/Background3.png" id="5_lnnu2"]
+[ext_resource type="Texture2D" uid="uid://di6l6nhadmqiw" path="res://Images/Foreground3.png" id="6_q2nql"]
 [ext_resource type="PackedScene" uid="uid://cuhn2m0tamqn8" path="res://Scenes/Pots/pot.tscn" id="7_ukvw0"]
 [ext_resource type="PackedScene" uid="uid://ny50yfb21ig4" path="res://Scenes/info_button.tscn" id="8_gw5js"]
 
@@ -23,7 +23,7 @@ position = Vector2(40, 0)
 script = ExtResource("4_ihtmy")
 
 [node name="Background" type="Sprite2D" parent="Level"]
-texture = ExtResource("5_v2cpl")
+texture = ExtResource("5_lnnu2")
 offset = Vector2(600, 360)
 region_rect = Rect2(293, 122.5, 25, 5)
 
@@ -31,7 +31,7 @@ region_rect = Rect2(293, 122.5, 25, 5)
 
 [node name="Foreground" type="Sprite2D" parent="Level"]
 texture_filter = 1
-texture = ExtResource("6_i1vro")
+texture = ExtResource("6_q2nql")
 offset = Vector2(600, 360)
 region_rect = Rect2(293, 122.5, 25, 5)
 
@@ -47,6 +47,7 @@ pot_color = 2
 [node name="PotRouge" parent="Level/Pots" instance=ExtResource("7_ukvw0")]
 position = Vector2(1088, 335)
 pot_color = 1
+content = 5
 
 [node name="InfoButton" parent="Level" instance=ExtResource("8_gw5js")]
 position = Vector2(805, 122)

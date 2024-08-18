@@ -70,6 +70,7 @@ pot_color = 2
 [node name="PotRouge" parent="Level/Pots" instance=ExtResource("7_jin1c")]
 position = Vector2(1088, 335)
 pot_color = 1
+content = 5
 
 [node name="InfoButton" parent="Level" instance=ExtResource("8_m7gbk")]
 position = Vector2(805, 122)
