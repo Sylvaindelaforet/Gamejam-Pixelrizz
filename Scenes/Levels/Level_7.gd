@@ -20,6 +20,7 @@ var init_grid = [
 
 
 func _ready():
+	$Level.set_is_last_level(true)
 	update_pinceau(selected_color)
 
 func validate_grid():
@@ -44,10 +45,10 @@ func get_selected_color():
 	return selected_color
 
 func load_next_level():
-	var final_message_scene = load("res://Scenes/Levels/Final_Message.tscn")
-	var final_message = final_message_scene.instantiate()
-	$Level.add_child(final_message)
-
+	#var final_message_scene = load("res://Scenes/Levels/Final_Message.tscn")
+	#var final_message = final_message_scene.instantiate()
+	#$Level.add_child(final_message)
+	pass
 func _on_pot_couleur_choisie(pot_color):
 	selected_color = pot_color
 	update_pinceau(pot_color)

@@ -2,6 +2,7 @@ extends Node2D
 
 
 var tiles_grid = null
+var is_last_level = false
 
 func _ready():
 	var init_grid = get_parent().get_init_grid()
@@ -22,6 +23,9 @@ func _process(delta):
 	# Centered_View position
 	self.position.x = (get_viewport().size.x - scale * background_width) / 2
 	self.position.y = (get_viewport().size.y - scale * background_height) / 2
+
+func set_is_last_level(_is_last_level):
+	is_last_level = _is_last_level
 
 func get_grid_x():
 	return get_parent().grid_x
@@ -50,10 +54,16 @@ func game_over():
 	$InfoButton.show_failure()
 
 func game_success():
-	$SuccessSound.play()
-	$AnimSuccess.show()
-	$AnimSuccess.play()
-	$InfoButton.show_success()
+	if is_last_level:
+		$SuccessSound.play()
+		$AnimSuccess.show()
+		$AnimSuccess.play()
+		$InfoButton.show_end_game()
+	else:
+		$SuccessSound.play()
+		$AnimSuccess.show()
+		$AnimSuccess.play()
+		$InfoButton.show_success()
 
 func get_selected_color():
 	return get_parent().get_selected_color()
