@@ -63,15 +63,10 @@ region_rect = Rect2(293, 122.5, 25, 5)
 
 [node name="Pots" type="Node2D" parent="Level"]
 
-[node name="PotJaune" parent="Level/Pots" instance=ExtResource("7_jin1c")]
-position = Vector2(1090, 138)
-pot_color = 2
-content = 9
-
 [node name="PotRouge" parent="Level/Pots" instance=ExtResource("7_jin1c")]
 position = Vector2(1088, 335)
 pot_color = 1
-content = 8
+content = 3
 
 [node name="InfoButton" parent="Level" instance=ExtResource("8_m7gbk")]
 position = Vector2(805, 122)
@@ -93,5 +88,4 @@ visible = false
 position = Vector2(604, 363)
 sprite_frames = SubResource("SpriteFrames_cpvdg")
 
-[connection signal="couleur_choisie" from="Level/Pots/PotJaune" to="." method="_on_pot_couleur_choisie"]
 [connection signal="couleur_choisie" from="Level/Pots/PotRouge" to="." method="_on_pot_couleur_choisie"]

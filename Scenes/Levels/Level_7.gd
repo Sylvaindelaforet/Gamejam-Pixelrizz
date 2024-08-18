@@ -9,13 +9,13 @@ var grid_x = 36
 
 # Initial state of the grid
 var init_grid = [
-	[  null,   null,   null, "blue", "blue", "blue", "blue",   null,   null,   null ],
-	[  null,   null,   null, "blue", "blue", "blue", "blue",   null,   null,   null ],
-	[  null,   null, "blue", "blue", "blue", "blue", "blue", "blue",   null,   null ],
-	[  null, "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue",   null ],
-	[  null, "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue",   null ],
-	["blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue" ],
-	["blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue", "blue" ]
+	[     null,     null,     null,     null,     null,     null,     null,     null,     null,   null ],
+	[   "blue",   "blue",   "blue",   "blue",   "blue",   "blue",   "blue",   "blue",   "blue",   "blue" ],
+	[   "blue",   "blue",   "blue",   "blue",   "blue",   "blue",   "blue",   "blue",   "blue",   "blue" ],
+	[   "blue",   "blue",   "blue",   "blue",   "blue",   "blue",   "blue",   "blue",   "blue",   "blue" ],
+	[   "blue",   "blue",   "blue",   "blue",   "blue",   "blue",   "blue",   "blue",   "blue",   "blue" ],
+	[   "blue",   "blue",   "blue",   "blue",   "blue",   "blue",   "blue",   "blue",   "blue",   "blue" ],
+	[   "blue",   "blue",   "blue",   "blue",   "blue",   "blue",   "blue",   "blue",   "blue",   "blue" ]
 ]
 
 
