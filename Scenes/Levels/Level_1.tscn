@@ -48,7 +48,8 @@ content = 5
 
 [node name="InfoButton" parent="Level" instance=ExtResource("5_6kldi")]
 position = Vector2(805, 122)
-text_to_display = "Super génial"
+text_to_display = "Bienvenu dans le niveau 1.
+Vous devez "
 
 [connection signal="couleur_choisie" from="Level/Pots/PotBleu" to="." method="_on_pot_couleur_choisie"]
 [connection signal="couleur_choisie" from="Level/Pots/PotRouge" to="." method="_on_pot_couleur_choisie"]

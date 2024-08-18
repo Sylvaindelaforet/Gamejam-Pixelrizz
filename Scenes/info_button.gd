@@ -33,7 +33,7 @@ func end_display():
 		STATE.SUCCESS:
 			get_parent().get_parent().load_next_level()
 		STATE.INFO:
-			pass
+			$Popup.hide()
 
 
 

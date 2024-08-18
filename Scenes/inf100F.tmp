@@ -1,0 +1,54 @@
+[gd_scene load_steps=6 format=3 uid="uid://ny50yfb21ig4"]
+
+[ext_resource type="Script" path="res://Scenes/info_button.gd" id="1_sfbk6"]
+[ext_resource type="Texture2D" uid="uid://co3coev4vm4l7" path="res://Images/manuscript.png" id="2_faant"]
+[ext_resource type="Script" path="res://Scenes/Pots/ClickSprite.gd" id="2_w4jeq"]
+[ext_resource type="Script" path="res://Scenes/ScriptPopup.gd" id="3_d1ri7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_veqes"]
+size = Vector2(223, 132)
+
+[node name="InfoButton" type="Node2D"]
+script = ExtResource("1_sfbk6")
+
+[node name="Parchemin" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_faant")
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("2_w4jeq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(73.5, 8)
+shape = SubResource("RectangleShape2D_veqes")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Popup" type="Sprite2D" parent="Control"]
+texture = ExtResource("2_faant")
+script = ExtResource("3_d1ri7")
+
+[node name="Label" type="Label" parent="Control/Popup"]
+offset_left = -32.0
+offset_top = -48.0
+offset_right = 329.0
+offset_bottom = 63.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Texte vide
+"
+horizontal_alignment = 1
+
+[connection signal="clicked" from="Area2D" to="." method="display"]
+[connection signal="on_clicked" from="Control/Popup" to="." method="end_display"]
