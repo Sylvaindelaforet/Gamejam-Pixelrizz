@@ -17,12 +17,12 @@ func display():
 	$Popup.show()
 
 func show_success():
-	$Popup/Label.text = "Vous avez gagné, cliquez pour passer au niveau suivant"
+	$Popup/Label.text = "Vous avez gagné!\nCliquez sur le parchemin pour passer au niveau suivant"
 	current_state = STATE.SUCCESS
 	display()
 
 func show_failure():
-	$Popup/Label.text = "Vous avez perdu, réessayez"
+	$Popup/Label.text = "Vous avez perdu.\nCliquez sur le parchemin pour réessayer."
 	current_state = STATE.FAILURE
 	display()
 

@@ -1,15 +1,17 @@
-[gd_scene load_steps=7 format=3 uid="uid://cuhn2m0tamqn8"]
+[gd_scene load_steps=8 format=3 uid="uid://cuhn2m0tamqn8"]
 
 [ext_resource type="Script" path="res://Scenes/Pots/pot.gd" id="1_lws35"]
 [ext_resource type="Texture2D" uid="uid://dofoykctu5vsj" path="res://Images/potBleu.png" id="1_wgsx3"]
 [ext_resource type="Script" path="res://Scenes/Pots/ClickSprite.gd" id="2_vxjws"]
+[ext_resource type="FontFile" uid="uid://domlxcso5o4qw" path="res://Giotthany.otf" id="4_em2gn"]
 [ext_resource type="AudioStream" uid="uid://b5lrpb6lltuqy" path="res://Sons/pot.mp3" id="4_to5lp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_axgta"]
 size = Vector2(170, 174.75)
 
 [sub_resource type="LabelSettings" id="LabelSettings_eftyl"]
-font_size = 48
+font = ExtResource("4_em2gn")
+font_size = 66
 
 [node name="Pot" type="Node2D"]
 script = ExtResource("1_lws35")
@@ -26,10 +28,10 @@ texture_filter = 1
 texture = ExtResource("1_wgsx3")
 
 [node name="Label" type="Label" parent="."]
-offset_left = -21.0
-offset_top = -19.0
-offset_right = 44.0
-offset_bottom = 48.0
+offset_left = -25.0
+offset_top = -25.0
+offset_right = 47.0
+offset_bottom = 65.0
 text = "0"
 label_settings = SubResource("LabelSettings_eftyl")
 
